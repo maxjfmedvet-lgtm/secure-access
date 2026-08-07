@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Secure Access</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="background"></div>
+
+<div id="container">
+
+    <!-- TELA INICIAL -->
+
+    <section id="screen-home" class="screen active">
+
+        <h1 class="logo">
+            SECURE ACCESS
+        </h1>
+
+        <p class="subtitle">
+            Secure Identity Verification
+        </p>
+
+        <button id="startButton">
+            Iniciar autenticação
+        </button>
+
+    </section>
+
+    <!-- TERMINAL -->
+
+    <section id="screen-auth" class="screen">
+
+        <div class="terminal">
+
+            <div id="terminalText"></div>
+
+            <div class="cursor"></div>
+
+        </div>
+
+    </section>
+
+    <!-- HISTÓRIA -->
+
+    <section id="screen-history" class="screen">
+
+        <div id="historyText"></div>
+
+    </section>
+
+    <!-- FOTOS -->
+
+    <section id="screen-gallery" class="screen">
+
+        <img id="photo" src="" alt="">
+
+        <div id="photoCaption"></div>
+
+    </section>
+
+    <!-- FUTURO -->
+
+    <section id="screen-future" class="screen">
+
+        <div id="futureText"></div>
+
+        <button id="continueButton">
+            Concluir autenticação
+        </button>
+
+    </section>
+
+
+<!-- MOSAICO FINAL -->
+
+<section id="screen-mosaic" class="screen">
+
+    <div id="mosaicContainer">
+
+        <div id="mosaicGrid"></div>
+
+        <div id="mosaicOverlay">
+
+            <h2>
+                Toda história nos trouxe até aqui.
+            </h2>
+
+            <button id="resultButton">
+                Ver resultado final
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PEDIDO -->
+
+<section id="screen-final" class="screen">
+
+    <h2 class="question1">
+        Isabela...
+    </h2>
+
+    <h1 class="question2">
+        Quer casar comigo?
+    </h1>
+
+</section>
+
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
