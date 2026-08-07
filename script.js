@@ -336,15 +336,20 @@ resultButton.addEventListener("click",async()=>{
 
     await wait(1500);
 
+continueButton.style.display="block";
+continueButton.style.opacity="0";
 
-    continueButton.style.display="block";
+setTimeout(()=>{
+    continueButton.style.transition="opacity 1.5s";
+    continueButton.style.opacity="1";
+},100);
 
 
 });
 
 
 
-
+continueButton.style.display="none";
 
 
 // ÚLTIMO ARQUIVO
