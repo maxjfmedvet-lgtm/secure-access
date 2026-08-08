@@ -299,6 +299,9 @@ async function showMosaic(){
 
 resultButton.addEventListener("click",async()=>{
 
+continueButton.style.display = "none";
+continueButton.style.opacity = "0";
+continueButton.style.pointerEvents = "none";    
 
     showScreen("screen-future");
 
@@ -342,6 +345,7 @@ continueButton.style.opacity="0";
 setTimeout(()=>{
     continueButton.style.transition="opacity 1.5s";
     continueButton.style.opacity="1";
+    continueButton.style.pointerEvents="auto";
 },100);
 
 
@@ -349,49 +353,89 @@ setTimeout(()=>{
 
 
 
-continueButton.style.display="none";
 
 
 // ÚLTIMO ARQUIVO
 
+let confirmationStage = false;
+
 continueButton.addEventListener("click",async()=>{
 
+    // PRIMEIRO CLIQUE:
+    // Concluir autenticação final
 
-    showScreen("screen-future");
+    if(!confirmationStage){
 
+        confirmationStage = true;
 
-    const finalFile=[
-
-        "ARQUIVO: FUTURO.DAT",
-
-        "",
-
-        "Data de criação: 08/08/2026",
-
-        "Tamanho: infinito",
-
-        "",
-
-        "Conteúdo aguardando confirmação..."
-
-    ];
+        // Esconde o botão imediatamente
+        continueButton.style.display = "none";
+        continueButton.style.opacity = "0";
+        continueButton.style.pointerEvents = "none";
 
 
-    futureText.innerHTML="";
+        showScreen("screen-future");
 
 
-    for(let line of finalFile){
+        const finalFile=[
 
-        await typeText(futureText,line,45);
+            "ARQUIVO: FUTURO.DAT",
 
-        await wait(1200);
+            "",
 
-        futureText.innerHTML += "<br>";
+            "Data de criação: 08/08/2026",
+
+            "Tamanho: infinito",
+
+            "",
+
+            "Conteúdo aguardando confirmação..."
+
+        ];
+
+
+        futureText.innerHTML="";
+
+
+        for(let line of finalFile){
+
+            await typeText(futureText,line,45);
+
+            await wait(1200);
+
+            futureText.innerHTML += "<br>";
+
+        }
+
+
+        await wait(1500);
+
+
+        // Agora o botão volta como CONFIRMAÇÃO
+        continueButton.innerText = "CONFIRMAÇÃO";
+
+        continueButton.style.display = "block";
+        continueButton.style.opacity = "0";
+
+        setTimeout(()=>{
+
+            continueButton.style.transition = "opacity 1.5s";
+            continueButton.style.opacity = "1";
+            continueButton.style.pointerEvents = "auto";
+
+        },100);
+
+
+        return;
 
     }
 
 
-    await wait(2000);
+    // SEGUNDO CLIQUE:
+    // CONFIRMAÇÃO
+
+    continueButton.style.display = "none";
+    continueButton.style.pointerEvents = "none";
 
 
     showScreen("screen-final");
@@ -425,6 +469,5 @@ continueButton.addEventListener("click",async()=>{
     question.style.transition="opacity 2s";
 
     question.style.opacity="1";
-
 
 });
